@@ -24,7 +24,6 @@ This project provides a robust framework for detecting fraudulent financial acti
 │   └── models/         # Model implementations (RF, KMeans, ANN)
 ├── notebook/           # Research and Development Notebooks
 ├── data/               # (Ignored) Raw transaction data
-└── plots/              # Saved visualization assets
 ```
 
 ## 🛠️ Installation
@@ -62,4 +61,4 @@ streamlit run app.py
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
-Created with ❤️ by [Amay Lugun](https://github.com/AmayLugun)
+Created by [Amay Lugun](https://github.com/AmayLugun)
