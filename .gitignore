@@ -32,6 +32,7 @@ env/
 # Data and Models (usually good to ignore large files)
 data/
 models/
+plots/
 
 # Jupyter Notebook
 .ipynb_checkpoints
