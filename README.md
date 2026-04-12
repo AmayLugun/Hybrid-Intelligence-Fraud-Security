@@ -4,7 +4,6 @@ An advanced financial fraud detection system leveraging hybrid intelligence (Mac
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## 🌟 Overview
 This project provides a robust framework for detecting fraudulent financial activities. It combines multiple classification models (Random Forest, KMeans, Neural Networks) to provide a high-confidence prediction engine. The project includes a comprehensive Streamlit dashboard for data exploration and model performance monitoring.
@@ -56,9 +55,6 @@ To launch the interactive dashboard:
 ```bash
 streamlit run app.py
 ```
-
-## 🛡️ License
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 Created by [Amay Lugun](https://github.com/AmayLugun)

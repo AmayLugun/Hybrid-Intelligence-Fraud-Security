@@ -1,7 +1,6 @@
-# Backward-compatible wrapper — use src.evaluation for new code
-#
-# The old evaluate_model(y_true, y_pred) returned (recall, cm).
-# The new one returns a dict. This wrapper preserves the old API.
+# evaluation_legacy.py — Backward-compatible wrapper
+# Use src.evaluation for new code (returns dict).
+# This module preserves the old API (returns tuple).
 
 from sklearn.metrics import recall_score, confusion_matrix
 
