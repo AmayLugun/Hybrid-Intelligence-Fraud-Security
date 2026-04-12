@@ -9,8 +9,4 @@ def train_random_forest(X, y, n_estimators=100, random_state=42):
 def get_feature_importances(model):
     return model.feature_importances_
 
-def evaluate_random_forest(y_true, y_pred):
-    recall = recall_score(y_true, y_pred)
-    cm = confusion_matrix(y_true, y_pred)
-    return recall, cm
 

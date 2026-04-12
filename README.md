@@ -45,10 +45,22 @@ This project provides a robust framework for detecting fraudulent financial acti
    ```
 
 ## 📊 Dataset
-This project uses the **Credit Card Fraud Detection** dataset (highly imbalanced).
-- **Format**: CSV
-- **Download**: You can download it from [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
-- **Placement**: Place the `creditcard.csv` file inside the `data/` folder before running the application.
+The project utilizes the **Credit Card Fraud Detection** dataset, which contains transactions made by credit cards in September 2013 by European cardholders.
+
+### Key Characteristics:
+- **Total Transactions**: 284,807
+- **Fraudulent Transactions**: 492 (0.172% of the total) - **Highly Imbalanced**.
+- **Features**: 
+    - `Time`: Seconds elapsed between each transaction and the first transaction.
+    - `Amount`: Transaction amount, which can be used for cost-sensitive learning.
+    - `V1-V28`: Principal components obtained with PCA (for privacy reasons).
+    - `Class`: Response variable (1 for fraud, 0 otherwise).
+
+### Data Source:
+You can find the dataset on [Kaggle](https://www.kaggle.com/datasets/jacklizhi/creditcard). 
+
+> [!NOTE]
+> The notebook included in this repository (`notebook/fraud_detection.ipynb`) uses `kagglehub` to automatically fetch the data, so manual download may be optional.
 
 ## 💻 Usage
 To launch the interactive dashboard:

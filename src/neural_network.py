@@ -23,8 +23,3 @@ def train_neural_network(model, X, y, epochs=10, batch_size=32, validation_split
 
 def predict_neural_network(model, X):
     return model.predict(X)
-
-def evaluate_neural_network(y_true, y_pred):
-    recall = recall_score(y_true, y_pred)
-    cm = confusion_matrix(y_true, y_pred)
-    return recall, cm
