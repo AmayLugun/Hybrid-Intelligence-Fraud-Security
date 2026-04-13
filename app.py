@@ -10,12 +10,11 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model as keras_load_model
 
 from src.preprocess import load_data, preprocess_data
-from src.random_forest_model import train_random_forest, get_feature_importances
+from src.random_forest_model import train_random_forest
 from src.neural_network import build_neural_network, train_neural_network, predict_neural_network
-from src.kmeans import train_kmeans, evaluate_kmeans
-from src.evaluation import evaluate_model, get_roc_curve, get_pr_curve
+from src.evaluation import evaluate_model, get_roc_curve
 from src.visualization import (
-    plot_heatmap, plot_feature_importance, plot_top_correlations, plot_class_distribution
+    plot_heatmap, plot_top_correlations, plot_class_distribution
 )
 
 # ── Paths & Config ─────────────────────────────────────────────────────────────
@@ -27,7 +26,7 @@ st.set_page_config(page_title="Financial Fraud Detection", page_icon="🔒", lay
 
 # ── Sidebar ────────────────────────────────────────────────────────────────────
 st.sidebar.title("🔒 Fraud Detection")
-page = st.sidebar.radio("Navigation", ["📊 Data Explorer", "🤖 Train Models", "📈 Results", "🔍 Single Transaction"])
+page = st.sidebar.radio("Navigation", ["📊 Data Explorer", "🤖 Train Models", "📈 Results"])
 st.sidebar.markdown("---")
 use_smote = st.sidebar.checkbox("Apply SMOTE", value=True)
 test_size = st.sidebar.slider("Test Split Size", 0.1, 0.4, 0.2)
@@ -162,21 +161,3 @@ elif page == "📈 Results":
         fpr, tpr, _ = get_roc_curve(st.session_state.y_test, st.session_state.nn_y_prob)
         ax.plot(fpr, tpr, label=f"NN (AUC={nn_m['auc_roc']:.3f})")
     ax.plot([0,1],[0,1],'k--'); ax.legend(); st.pyplot(fig)
-
-# ══════════════════════════════════════════════════════════════════════════════
-elif page == "🔍 Single Transaction":
-    st.title("🔍 Prediction")
-    if not st.session_state.rf_model and not st.session_state.nn_model: st.warning("Train models first."); st.stop()
-    
-    with st.form("input"):
-        inputs = [st.number_input(f, value=0.0) for f in st.session_state.feature_names]
-        if st.form_submit_button("Predict"):
-            row = np.array([inputs])
-            if st.session_state.scaler: row = st.session_state.scaler.transform(row)
-            
-            if st.session_state.rf_model:
-                p = st.session_state.rf_model.predict_proba(row)[0][1]
-                st.write(f"RF Fraud Prob: {p:.4f}")
-            if st.session_state.nn_model:
-                p = float(predict_neural_network(st.session_state.nn_model, row))
-                st.write(f"NN Fraud Prob: {p:.4f}")
