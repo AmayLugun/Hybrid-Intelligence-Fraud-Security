@@ -8,5 +8,3 @@ def train_random_forest(X, y, n_estimators=100, random_state=42):
 
 def get_feature_importances(model):
     return model.feature_importances_
-
-

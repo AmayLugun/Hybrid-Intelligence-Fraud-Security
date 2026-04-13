@@ -9,3 +9,5 @@ def train_kmeans(X, n_clusters=2, random_state=42):
 def evaluate_kmeans(y, cluster):
     df = pd.DataFrame({'Actual': y, 'Cluster': cluster})
     return pd.crosstab(df['Actual'], df['Cluster'])
+
+    
